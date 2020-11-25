@@ -1,0 +1,26 @@
+1) When creating a new branch from master:
+	- git checkout -b my_new_branch
+	- git fetch origin (to update your local repo)
+
+2) After making changes to my_new_branch, and pushing to this branch. Check if the master branch has 
+   some changes
+	- On my_new_branch
+	- git fetch origin
+	- git rebase origin/master (to rebase what's on the master to my_new_branch, thus making the changes in the master available in my_new_branch, and if conflicts arises, reslove them)
+
+	// If conflicts arises, reslove them then
+		- git add .
+		- git rebase --continue
+		- ctrl+x
+
+	- git checkout master
+	- git fetch origin
+	- git rebase origin/my_new_branch
+	- git pull --rebase origin master
+	- git add .
+	- git commit --ammend --noedit
+	- git push origin master
+
+3) Before starting to work on your branch, must have the latest work on master
+	- git fetch origin
+	- git rebase origin/master
